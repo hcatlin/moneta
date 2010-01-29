@@ -1,9 +1,10 @@
 begin
   require "memcached"
+  MemCache = Memcached
 rescue LoadError
   require "memcache"
-rescue LoadError
-  puts "You need the memcache gem to use the Memcache moneta store"
+rescue
+  puts "You need either the `memcached` or `memcache-client` gem to use the Memcache moneta store"
   exit
 end
 
